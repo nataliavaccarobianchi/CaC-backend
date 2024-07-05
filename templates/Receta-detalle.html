@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGA</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style-receta.css') }}">
+</head>
+
+
+
+<!--receta-->
+<body>
+    <nav>
+        <div class="nav_header">
+            <div class="logo nav_logo">
+                <img src="./img/logo.png" alt="Logo"/>
+            </div>
+            <div class="nav_menu_boton" id="menu-boton">
+                <span><i class="ri-menu-line"></i></span>
+            </div>
+        </div>
+        <ul class="nav_links" id="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="./Nosotros.html">Nosotros</a></li>
+            <li><a href="./Contacto.html">Contacto</a></li>
+
+        </ul>
+ 
+    </nav>
+    <header>    
+        <div class="receta__container">
+            <div class="img-receta">
+                <img src="{{receta[5]}}" alt="pastel">
+            </div>
+            <div class="titulo-descripcion">
+            <h1>{{receta[1]}}</h1>
+            <p>{{receta[2]}}</p>
+            
+        </div>
+        
+            
+            <div class="ingredientes-receta">
+    
+                <div class="ingredientes">
+                <h2>Ingredientes</h2>
+                <p>{{receta[3]}}</p> 
+            </div>
+            
+        
+            <div class="preparacion">
+                <h2>Pasos</h2>
+                <p>{{receta[4]}}</p>
+            </div>
+        </div>
+        </div>  
+</header>
+
+
+    <footer class="footer">
+    <div class="container">
+        <p>© 2024 Grupo 1- Codo a Codo. Todos los derechos reservados.</p>
+    </div>
+</footer>
+<script src="main.js"></script>
+    </body>
+
+</html>

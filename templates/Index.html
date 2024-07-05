@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<header>
+    <img src="./img/logo.png" alt="Logo" />
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="./Nosotros.html">Nosotros</a></li>
+        <li><a href="./Contacto.html">Contacto</a></li>
+    </ul>
+    <div class="usuario">
+        {% if logged_in[0] %}
+        <p>Bienvenido, {{ logged_in[2] }}</p>
+        <a href="/logout">cerrar sesión</a>
+        <a href="/changepassword">cambiar contraseña</a>
+        <a href="/deleteuser/{{logged_in[1]}}">eliminar usuario</a>
+        {% else %}
+        <a href="/register">registrarme</a>
+        <a href="/login">iniciar sesión</a>
+        {% endif %}
+    </div>
+
+</header>
+
+<body>
+    <div class="home--sec">
+        <h2>Para cocinar en casa:</h2>
+        <div class="home--recetas">
+
+            {% for i in range(5) %}
+            
+
+            <li>
+                <h2>{{ recetas[i][1] }}</h2>
+                <a href="/detalle/{{recetas[i][0]}}"><img src="{{recetas[i][5]}}" alt="{{recetas[i][1]}}"></a>
+            </li>
+
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+<footer>
+
+</footer>
+
+</html>
