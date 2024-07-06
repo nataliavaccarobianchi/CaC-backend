@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import os
-
- # Importamos el módulo database.py
 import database as db
+
 
 project_dir = os.path.dirname(os.path.abspath(__file__))  # Project directory (where app.py is located)
 template_dir = os.path.join(project_dir, 'templates')
@@ -42,7 +41,7 @@ def save_user():
         data = (usuario, contraseña)
         cursor.execute(sql, data)
         db.database.commit()
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 #ruta para mostrar el formulario de login
 @app.route('/login')
@@ -127,29 +126,22 @@ def detalle(id):
     cursor = db.database.cursor()
     cursor.execute("SELECT * FROM recetas WHERE id = %s", (id,))
     receta = cursor.fetchone()
-    return render_template('Receta-detalle.html', receta=receta)
+    logged_in = session.get('logged_in', [False])
+
+    return render_template('Receta-detalle.html', receta=receta, logged_in=logged_in)
+
+#ruta para redirigir a nosotros
+@app.route('/nosotros')
+def nosotros():
+    logged_in = session.get('logged_in', [False])
+    return render_template('nosotros.html', logged_in=logged_in)
+
+#ruta para redirigir a contacto
+@app.route('/contacto')
+def contacto():
+    logged_in = session.get('logged_in', [False])
+    return render_template('contacto.html',logged_in=logged_in)
 
 
-# #crear recetas
-# @app.route('/crearreceta')
-# def crearreceta():
-#     return render_template('crearreceta.html')
-
-# #guardar recetas
-# @app.route('/recetanueva', methods=['POST'])
-# def save_receta():
-#     titulo = request.form['titulo']
-#     descripcion = request.form['descripcion']
-#     ingredientes = request.form['ingredientes']
-#     preparacion = request.form['pasos']
-#     imagen = request.form['foto']
-
-#     if titulo and descripcion and ingredientes and preparacion and imagen:
-#         cursor = db.database.cursor()
-#         sql = "INSERT INTO recetas (nombre, preparacion, imagen) VALUES (%s, %s, %s)"
-#         data = (nombre, preparacion, imagen)
-#         cursor.execute(sql, data)
-#         db.database.commit()
-#         return redirect(url_for('index'))
 if __name__ == '__main__':
      app.run(debug=True, port=8000)
