@@ -6,26 +6,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>EGA</title>
 </head>
-<header>
-    <img src="./img/logo.png" alt="Logo" />
-    <ul class="menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="./Nosotros.html">Nosotros</a></li>
-        <li><a href="./Contacto.html">Contacto</a></li>
-    </ul>
-    <div class="usuario">
-        {% if logged_in[0] %}
-        <p>Bienvenido, {{ logged_in[2] }}</p>
-        <a href="/logout">cerrar sesión</a>
-        <a href="/changepassword">cambiar contraseña</a>
-        <a href="/deleteuser/{{logged_in[1]}}">eliminar usuario</a>
-        {% else %}
-        <a href="/register">registrarme</a>
-        <a href="/login">iniciar sesión</a>
-        {% endif %}
-    </div>
+<!-- partial header -->
+{% include 'header.html' %}
 
-</header>
 <body>
     <form class="formUser" action="/changepassword" method="POST">
         <label for="password">Contraseña actual:</label>

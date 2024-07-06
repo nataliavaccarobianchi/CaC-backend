@@ -13,36 +13,23 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/style.css"> -->
-    <link rel="stylesheet" href="./css//style_nosotros.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_nosotros.css') }}">
+
 </head>
 
+<!-- partial header -->
+{% include 'header.html' %}
+
 <body>
-    <header id="header">
-        <nav>
-            <div class="nav_header">
-                <div class="logo nav_logo">
-                    <img src="./img/logo.png" alt="Logo">
-                </div>
-                <div class="nav_menu_boton" id="menu-boton">
-                    <span><i class="ri-menu-line"></i></span>
-                </div>
-            </div>
-            <ul class="nav_links" id="nav-links">
-                <li><a href="./Index.html">Home</a></li>
-                <li><a href="./Nosotros.html">Nosotros</a></li>
-                <li><a href="./Contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    
     <main class="gral-style">
         <section class="presentacion1">
             <h2 style="text-decoration: underline;">Quiénes somos?</h2>
             <div class="texto-foto">
                 <div class="foto">
-                    <a href="./img/nosotros1-image-alumnos1.jpg" target="_blank">
-                        <img id="foto-alumnos1" src="./img/nosotros1-image-alumnos1.jpg" alt="foto-alumnos1"><br>
-                    </a>
+                        <img id="foto-alumnos1" src="https://www.sg.edu.mx/hs-fs/hubfs/blog/articulos/Julio/estudiantes-gastronomia-licenciatura-superior.jpg?width=560&height=356&name=estudiantes-gastronomia-licenciatura-superior.jpg" alt="foto-alumnos1"><br>
                 </div>
                 <div class="texto">
                     <h4> <i>"EN EGA SOMOS DISTINTOS"</i></h4>

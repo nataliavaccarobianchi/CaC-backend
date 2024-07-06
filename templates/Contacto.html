@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EGA</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -13,14 +13,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
-<header>
-    <img src="./img/logo.png" alt="Logo" />
-    <ul class="menu">
-        <li><a href="./Index.html">Home</a></li>
-        <li><a href="./Nosotros.html">Nosotros</a></li>
-        <li><a href="./Contacto.html">Contacto</a></li>
-    </ul>
-</header>
+<!-- partial header -->
+{% include 'header.html' %}
 
 <body>
     <main class="p-2">

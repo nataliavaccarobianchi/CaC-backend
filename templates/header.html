@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGA</title>
+</head>
+<body>
+    
+</body>
+</html>
+<header>
+    <img src="https://www.yaguara-huila.gov.co/PublishingImages/logo-gastro.gif" alt="Logo" />
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+    </ul>
+    <div class="usuario">
+        {% if logged_in[0] %}
+        <p>Bienvenido, {{ logged_in[2] }}</p>
+        <a href="/logout">cerrar sesión</a>
+        <a href="/changepassword">cambiar contraseña</a>
+        <a href="/deleteuser/{{logged_in[1]}}">eliminar usuario</a>
+        {% else %}
+        <a href="/register">registrarme</a>
+        <a href="/login">iniciar sesión</a>
+        {% endif %}
+    </div>
+
+</header>
