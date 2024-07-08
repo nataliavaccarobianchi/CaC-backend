@@ -9,7 +9,7 @@ database = mysql.connector.connect(
     host="viaduct.proxy.rlwy.net",
     user="root",
     password="iqXIMyVbjTMFQbbbkbHYbAhxEEZDjmLr",
-    database="cacrecetas"
+    database="railway"
 )
 
 # Rest of your code goes here
