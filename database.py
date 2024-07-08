@@ -1,9 +1,14 @@
 import mysql.connector
 
 database = mysql.connector.connect(
-    host="localhost",
+    #host="localhost",
+    #user="root",
+    #password="",
+    #database="cacrecetas"
+    
+    host="viaduct.proxy.rlwy.net",
     user="root",
-    password="1234",
+    password="iqXIMyVbjTMFQbbbkbHYbAhxEEZDjmLr",
     database="cacrecetas"
 )
 
