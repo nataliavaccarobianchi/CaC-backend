@@ -19,15 +19,17 @@
         <h2>Para cocinar en casa:</h2>
         <div class="home--recetas">
 
-            {% for i in range(5) %}
-            
+            {% if recetas %}
+                {% for i in range(min(5, len(recetas))) %}
+                    <li>
+                        <h2>{{ recetas[i][1] }}</h2>
+                        <a href="/detalle/{{recetas[i][0]}}"><img src="{{recetas[i][5]}}" alt="{{recetas[i][1]}}"></a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>No hay recetas disponibles.</p>
+            {% endif %}
 
-            <li>
-                <h2>{{ recetas[i][1] }}</h2>
-                <a href="/detalle/{{recetas[i][0]}}"><img src="{{recetas[i][5]}}" alt="{{recetas[i][1]}}"></a>
-            </li>
-
-            {% endfor %}
         </div>
     </div>
 

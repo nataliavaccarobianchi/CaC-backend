@@ -17,9 +17,18 @@ def index():
     cursor.execute("SELECT * FROM recetas")
     recetas = cursor.fetchall()
     logged_in = session.get('logged_in', [False])
-    print(recetas[3])
+    
+    if recetas:  # Verifica si recetas no está vacía
+        # Puedes imprimir la longitud de recetas para depurar
+        print(len(recetas))
+        
+        # Asegúrate de que recetas tenga al menos un elemento antes de acceder a él
+        if len(recetas) > 3:
+            print(recetas[3])
+        else:
+            print("No hay suficientes recetas para acceder al índice 3.")
+    
     return render_template('index.html', logged_in=logged_in, recetas=recetas)
-
 
 
 
